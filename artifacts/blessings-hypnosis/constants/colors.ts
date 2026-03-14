@@ -1,0 +1,28 @@
+export const Colors = {
+  primary: '#1A0A3C',
+  primaryDark: '#0D0520',
+  primaryLight: '#2D1565',
+  accent: '#C9A84C',
+  accentLight: '#F0C96A',
+  accentGlow: '#FFD97D',
+  teal: '#00C9B1',
+  tealLight: '#4DDECE',
+  violet: '#7B2FBE',
+  violetLight: '#9B59D0',
+  gold: '#D4AF37',
+  goldLight: '#F2D060',
+  text: '#FFFFFF',
+  textSecondary: 'rgba(255,255,255,0.65)',
+  textMuted: 'rgba(255,255,255,0.4)',
+  card: 'rgba(255,255,255,0.07)',
+  cardBorder: 'rgba(255,255,255,0.12)',
+  cardHighlight: 'rgba(201,168,76,0.15)',
+  overlay: 'rgba(13,5,32,0.85)',
+  tabBar: '#0D0520',
+  tabBarBorder: 'rgba(201,168,76,0.3)',
+  success: '#00C9B1',
+  error: '#FF6B6B',
+  sectionBg: 'rgba(255,255,255,0.04)',
+};
+
+export default Colors;

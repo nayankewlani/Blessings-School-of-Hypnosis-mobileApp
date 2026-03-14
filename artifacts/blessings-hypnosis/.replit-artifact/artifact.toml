@@ -1,0 +1,27 @@
+kind = "mobile"
+previewPath = "/"
+title = "Blessings School of Hypnosis"
+version = "1.0.0"
+id = "artifacts/blessings-hypnosis"
+router = "expo-domain"
+
+[[integratedSkills]]
+name = "expo"
+version = "1.0.0"
+
+[[services]]
+ensurePreviewReachable = "/status"
+localPort = 23554
+name = "expo"
+paths = ["/"]
+
+[services.development]
+run = "pnpm --filter @workspace/blessings-hypnosis run dev"
+
+[services.env]
+PORT = "23554"
+BASE_PATH = "/"
+
+[services.production]
+build = ["pnpm", "--filter", "@workspace/blessings-hypnosis", "run", "build"]
+run = ["pnpm", "--filter", "@workspace/blessings-hypnosis", "run", "serve"]
