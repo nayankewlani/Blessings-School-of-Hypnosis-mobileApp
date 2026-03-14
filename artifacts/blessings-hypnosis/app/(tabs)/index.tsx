@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, TouchableOpacity,
-  Animated, Platform, Dimensions,
+  Animated, Platform, Dimensions, Image,
 } from 'react-native';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { router } from 'expo-router';
@@ -46,10 +46,10 @@ function PulseOrb({ delay }: { delay: number }) {
 }
 
 const ASTROLOGERS = [
-  { id: '1', name: '', price: '', badge: 'Rising Star' },
-  { id: '2', name: '', price: '', badge: 'Celebrity' },
-  { id: '3', name: '', price: '', badge: 'Celebrity' },
-  { id: '4', name: '', price: '', badge: '' },
+  { id: '1', name: 'Dr. Pradeep M', price: '', badge: 'Rising Star', image: require('@/assets/images/dr-pradeep.jpg') },
+  { id: '2', name: '', price: '', badge: 'Celebrity', image: null },
+  { id: '3', name: '', price: '', badge: 'Celebrity', image: null },
+  { id: '4', name: '', price: '', badge: '', image: null },
 ];
 
 const QUICK_FEATURES = [
@@ -93,9 +93,13 @@ function AstrologerCard({ item }: { item: typeof ASTROLOGERS[0] }) {
         </View>
       ) : null}
       <View style={styles.astroImageRing}>
-        <View style={styles.astroImagePlaceholder}>
-          <Ionicons name="person" size={38} color="rgba(245,240,255,0.3)" />
-        </View>
+        {item.image ? (
+          <Image source={item.image} style={styles.astroImage} />
+        ) : (
+          <View style={styles.astroImagePlaceholder}>
+            <Ionicons name="person" size={38} color="rgba(245,240,255,0.3)" />
+          </View>
+        )}
       </View>
       <Text style={styles.astroName}>{item.name || '—'}</Text>
       <Text style={styles.astroPrice}>{item.price || '₹ --/min'}</Text>
@@ -353,6 +357,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(245,240,255,0.08)',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  astroImage: {
+    width: 78,
+    height: 78,
+    borderRadius: 39,
   },
   astroName: { fontFamily: 'Inter_700Bold', fontSize: 13, color: Colors.text, textAlign: 'center', marginBottom: 4 },
   astroPrice: { fontFamily: 'Inter_400Regular', fontSize: 12, color: Colors.textSecondary, marginBottom: 10 },
