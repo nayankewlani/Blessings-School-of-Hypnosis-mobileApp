@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #0D0520;
+  --bg-secondary: #1A0A3C;
+  --accent: #C9A84C;
+  --accent-light: #F0C96A;
+  --teal: #00C9B1;
+  --violet: #7B2FBE;
+  --text: #F5F0FF;
+  --text-muted: rgba(245, 240, 255, 0.65);
+  font-family: "Inter", system-ui, sans-serif;
+  color-scheme: dark;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #0D0520;
+  color: #F5F0FF;
+}
+
+.slide {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.font-display {
+  font-family: "Playfair Display", Georgia, serif;
+}

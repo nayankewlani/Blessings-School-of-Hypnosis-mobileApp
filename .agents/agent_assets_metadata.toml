@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "2aNuHavTfl2ECnzKhsKBR"
+uri = "file://artifacts/blessings-architecture/KEY_POINTS.md"
+type = "text"
+title = "Key Points & Features (Editable)"

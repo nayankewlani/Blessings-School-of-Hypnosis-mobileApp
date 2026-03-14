@@ -1,0 +1,82 @@
+[
+  {
+    "id": "9f61f7eb-1ace-47f3-b8d5-9d5413e1282a",
+    "position": 1,
+    "filepath": "src/pages/slides/TitleSlide.tsx",
+    "title": "Title — Blessings School of Hypnosis",
+    "description": "Cover slide with app name, tagline, and tech stack badges.",
+    "speakerNotes": ""
+  },
+  {
+    "id": "a1b2c3d4-0001-4000-8000-100000000001",
+    "position": 2,
+    "filepath": "src/pages/slides/AppOverview.tsx",
+    "title": "App Overview",
+    "description": "What the app does — Astrology, Hypnosis, Wellness pillars.",
+    "speakerNotes": ""
+  },
+  {
+    "id": "a1b2c3d4-0001-4000-8000-100000000002",
+    "position": 3,
+    "filepath": "src/pages/slides/ComponentMap.tsx",
+    "title": "Visual Component Map",
+    "description": "Full hierarchy from Root Layout down to every sub-screen.",
+    "speakerNotes": ""
+  },
+  {
+    "id": "a1b2c3d4-0001-4000-8000-100000000003",
+    "position": 4,
+    "filepath": "src/pages/slides/NavigationArch.tsx",
+    "title": "Navigation Architecture",
+    "description": "File-based routing, Stack Navigator, Tab Navigator, and route examples.",
+    "speakerNotes": ""
+  },
+  {
+    "id": "a1b2c3d4-0001-4000-8000-100000000004",
+    "position": 5,
+    "filepath": "src/pages/slides/TabScreens.tsx",
+    "title": "The 5 Main Tab Screens",
+    "description": "Home, Horoscope, Services, Hypnosis, Profile — features and file names.",
+    "speakerNotes": ""
+  },
+  {
+    "id": "a1b2c3d4-0001-4000-8000-100000000005",
+    "position": 6,
+    "filepath": "src/pages/slides/SubScreens.tsx",
+    "title": "Sub-screens — Deep Dive Views",
+    "description": "All 6 detail screens launched from tabs with source and purpose.",
+    "speakerNotes": ""
+  },
+  {
+    "id": "a1b2c3d4-0001-4000-8000-100000000006",
+    "position": 7,
+    "filepath": "src/pages/slides/SharedComponents.tsx",
+    "title": "Shared Components",
+    "description": "GradientBackground, ErrorBoundary, ErrorFallback used by every screen.",
+    "speakerNotes": ""
+  },
+  {
+    "id": "a1b2c3d4-0001-4000-8000-100000000007",
+    "position": 8,
+    "filepath": "src/pages/slides/DataApis.tsx",
+    "title": "Data & Utility APIs",
+    "description": "All 8 functions in astrology.ts — params, returns, and which screen uses each.",
+    "speakerNotes": ""
+  },
+  {
+    "id": "a1b2c3d4-0001-4000-8000-100000000008",
+    "position": 9,
+    "filepath": "src/pages/slides/StateManagement.tsx",
+    "title": "State Management",
+    "description": "UserContext, AsyncStorage keys, and what data is persisted offline.",
+    "speakerNotes": ""
+  },
+  {
+    "id": "a1b2c3d4-0001-4000-8000-100000000009",
+    "position": 10,
+    "filepath": "src/pages/slides/TechStack.tsx",
+    "title": "Tech Stack & Key Features",
+    "description": "Complete technology reference and editable key features list.",
+    "speakerNotes": ""
+  }
+]

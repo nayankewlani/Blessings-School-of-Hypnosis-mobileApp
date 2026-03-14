@@ -1,0 +1,31 @@
+kind = "slides"
+previewPath = "/blessings-architecture/"
+title = "Blessings App Architecture Deck"
+version = "1.0.0"
+id = "artifacts/blessings-architecture"
+router = "path"
+
+[[integratedSkills]]
+name = "slides"
+version = "1.0.0"
+
+[[services]]
+localPort = 21821
+name = "web"
+paths = ["/blessings-architecture/"]
+
+[services.development]
+run = "pnpm --filter @workspace/blessings-architecture run dev"
+
+[services.env]
+PORT = "21821"
+BASE_PATH = "/blessings-architecture/"
+
+[services.production]
+build = ["pnpm", "--filter", "@workspace/blessings-architecture", "run", "build"]
+publicDir = "artifacts/blessings-architecture/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
