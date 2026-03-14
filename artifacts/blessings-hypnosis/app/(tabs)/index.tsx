@@ -45,6 +45,13 @@ function PulseOrb({ delay }: { delay: number }) {
   );
 }
 
+const ASTROLOGERS = [
+  { id: '1', name: '', price: '', badge: 'Rising Star' },
+  { id: '2', name: '', price: '', badge: 'Celebrity' },
+  { id: '3', name: '', price: '', badge: 'Celebrity' },
+  { id: '4', name: '', price: '', badge: '' },
+];
+
 const QUICK_FEATURES = [
   { id: 'horoscope', label: 'Today', icon: 'planet' as const, color: '#C9A84C', tab: '/horoscope' },
   { id: 'kundali', label: 'Kundali', icon: 'compass' as const, color: '#7B2FBE', route: '/kundali/' },
@@ -74,6 +81,28 @@ function QuickFeatureCard({ item }: { item: typeof QUICK_FEATURES[0] }) {
         <Text style={styles.quickLabel}>{item.label}</Text>
       </TouchableOpacity>
     </Animated.View>
+  );
+}
+
+function AstrologerCard({ item }: { item: typeof ASTROLOGERS[0] }) {
+  return (
+    <View style={styles.astroCard}>
+      {item.badge ? (
+        <View style={styles.astroBadge}>
+          <Text style={styles.astroBadgeText}>{item.badge}</Text>
+        </View>
+      ) : null}
+      <View style={styles.astroImageRing}>
+        <View style={styles.astroImagePlaceholder}>
+          <Ionicons name="person" size={38} color="rgba(245,240,255,0.3)" />
+        </View>
+      </View>
+      <Text style={styles.astroName}>{item.name || '—'}</Text>
+      <Text style={styles.astroPrice}>{item.price || '₹ --/min'}</Text>
+      <TouchableOpacity style={styles.astroChatBtn} activeOpacity={0.8}>
+        <Text style={styles.astroChatText}>Chat</Text>
+      </TouchableOpacity>
+    </View>
   );
 }
 
@@ -125,8 +154,7 @@ export default function HomeScreen() {
         <Animated.View style={[styles.heroBanner, { opacity: fadeAnim }]}>
           <View style={styles.heroOrbs}>
             <PulseOrb delay={0} />
-            <PulseOrb delay={600} />
-            <PulseOrb delay={1200} />
+            <PulseOrb delay={800} />
           </View>
           <Text style={styles.heroBannerTitle}>
             {todaySign ? `${todaySign.symbol} ${todaySign.name}` : 'Discover Your Destiny'}
@@ -153,6 +181,19 @@ export default function HomeScreen() {
             <QuickFeatureCard key={item.id} item={item} />
           ))}
         </View>
+
+        {/* Astrologers */}
+        <View style={styles.sectionHeader}>
+          <Text style={[styles.sectionTitle, { marginBottom: 0 }]}>Astrologers</Text>
+          <TouchableOpacity activeOpacity={0.7}>
+            <Text style={styles.viewAll}>View All</Text>
+          </TouchableOpacity>
+        </View>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.astroScroll} contentContainerStyle={{ paddingRight: 16 }}>
+          {ASTROLOGERS.map(item => (
+            <AstrologerCard key={item.id} item={item} />
+          ))}
+        </ScrollView>
 
         {/* Today's Panchang */}
         <Text style={styles.sectionTitle}>Today's Panchang</Text>
@@ -234,38 +275,95 @@ const styles = StyleSheet.create({
   userName: { fontFamily: 'Inter_500Medium', fontSize: 13, color: Colors.accentLight, marginTop: 2 },
   avatarBtn: { padding: 4 },
   heroBanner: {
-    borderRadius: 20,
+    borderRadius: 18,
     backgroundColor: 'rgba(123,47,190,0.22)',
     borderWidth: 1,
     borderColor: 'rgba(201,168,76,0.3)',
-    padding: 24,
-    marginBottom: 28,
+    paddingHorizontal: 20,
+    paddingVertical: 14,
+    marginBottom: 22,
     alignItems: 'center',
     overflow: 'hidden',
   },
-  heroOrbs: { flexDirection: 'row', gap: 20, marginBottom: 16 },
+  heroOrbs: { flexDirection: 'row', gap: 16, marginBottom: 10 },
   heroSymbol: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
     backgroundColor: 'rgba(201,168,76,0.18)',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  heroSymbolText: { fontSize: 22, color: Colors.accentLight },
-  heroBannerTitle: { fontFamily: 'Inter_700Bold', fontSize: 26, color: Colors.text, textAlign: 'center', marginBottom: 6 },
-  heroBannerSub: { fontFamily: 'Inter_400Regular', fontSize: 14, color: Colors.textSecondary, textAlign: 'center', marginBottom: 20 },
+  heroSymbolText: { fontSize: 18, color: Colors.accentLight },
+  heroBannerTitle: { fontFamily: 'Inter_700Bold', fontSize: 22, color: Colors.text, textAlign: 'center', marginBottom: 4 },
+  heroBannerSub: { fontFamily: 'Inter_400Regular', fontSize: 13, color: Colors.textSecondary, textAlign: 'center', marginBottom: 14 },
   heroBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: Colors.accentLight,
-    paddingHorizontal: 24,
-    paddingVertical: 12,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
     borderRadius: 50,
     gap: 8,
   },
-  heroBtnText: { fontFamily: 'Inter_600SemiBold', fontSize: 14, color: Colors.primaryDark },
+  heroBtnText: { fontFamily: 'Inter_600SemiBold', fontSize: 13, color: Colors.primaryDark },
+  sectionHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14, marginTop: 4 },
   sectionTitle: { fontFamily: 'Inter_600SemiBold', fontSize: 17, color: Colors.text, marginBottom: 14, marginTop: 4 },
+  viewAll: { fontFamily: 'Inter_500Medium', fontSize: 13, color: Colors.accentLight },
+  astroScroll: { marginBottom: 28 },
+  astroCard: {
+    width: 130,
+    backgroundColor: Colors.card,
+    borderRadius: 18,
+    borderWidth: 1,
+    borderColor: Colors.cardBorder,
+    alignItems: 'center',
+    paddingTop: 22,
+    paddingBottom: 16,
+    paddingHorizontal: 12,
+    marginRight: 12,
+    overflow: 'visible',
+  },
+  astroBadge: {
+    position: 'absolute',
+    top: 8,
+    left: 8,
+    backgroundColor: Colors.violet,
+    borderRadius: 6,
+    paddingHorizontal: 6,
+    paddingVertical: 3,
+    zIndex: 2,
+  },
+  astroBadgeText: { fontFamily: 'Inter_600SemiBold', fontSize: 9, color: Colors.text },
+  astroImageRing: {
+    width: 88,
+    height: 88,
+    borderRadius: 44,
+    borderWidth: 2.5,
+    borderColor: Colors.accentLight,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 10,
+    backgroundColor: 'rgba(245,240,255,0.06)',
+  },
+  astroImagePlaceholder: {
+    width: 78,
+    height: 78,
+    borderRadius: 39,
+    backgroundColor: 'rgba(245,240,255,0.08)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  astroName: { fontFamily: 'Inter_700Bold', fontSize: 13, color: Colors.text, textAlign: 'center', marginBottom: 4 },
+  astroPrice: { fontFamily: 'Inter_400Regular', fontSize: 12, color: Colors.textSecondary, marginBottom: 10 },
+  astroChatBtn: {
+    borderWidth: 1.5,
+    borderColor: Colors.teal,
+    borderRadius: 20,
+    paddingHorizontal: 28,
+    paddingVertical: 6,
+  },
+  astroChatText: { fontFamily: 'Inter_600SemiBold', fontSize: 13, color: Colors.teal },
   quickGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12, marginBottom: 28 },
   quickCard: {
     width: (width - 56) / 3,

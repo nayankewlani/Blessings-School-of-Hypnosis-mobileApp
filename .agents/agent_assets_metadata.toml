@@ -6,3 +6,9 @@ id = "2aNuHavTfl2ECnzKhsKBR"
 uri = "file://artifacts/blessings-architecture/KEY_POINTS.md"
 type = "text"
 title = "Key Points & Features (Editable)"
+
+[[outputs]]
+id = "LuMrc6IOII_TSFxqOGY3s"
+uri = "file://.local/outputs/Hypnosis-Blessings-School.pptx"
+type = "slides"
+title = "Hypnosis Blessings School.pptx"
