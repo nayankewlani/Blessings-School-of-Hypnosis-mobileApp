@@ -42,6 +42,7 @@ function PulseOrb({ delay }: { delay: number }) {
         <Text style={styles.heroSymbolText}>✦</Text>
       </View>
     </Animated.View>
+    
   );
 }
 
@@ -73,6 +74,7 @@ function QuickFeatureCard({ item }: { item: typeof QUICK_FEATURES[0] }) {
     });
   };
   return (
+    
     <Animated.View style={{ transform: [{ scale }] }}>
       <TouchableOpacity onPress={handlePress} style={styles.quickCard} activeOpacity={0.8}>
         <View style={[styles.quickIconCircle, { backgroundColor: item.color + '22' }]}>
@@ -80,6 +82,10 @@ function QuickFeatureCard({ item }: { item: typeof QUICK_FEATURES[0] }) {
         </View>
         <Text style={styles.quickLabel}>{item.label}</Text>
       </TouchableOpacity>
+        <TouchableOpacity onPress={() => router.push('/home2')}>
+  <Text>Go to Home 2</Text>
+</TouchableOpacity>
+
     </Animated.View>
   );
 }
@@ -154,6 +160,7 @@ export default function HomeScreen() {
           </View>
         </Animated.View>
 
+       
         {/* Hero Banner */}
         <Animated.View style={[styles.heroBanner, { opacity: fadeAnim }]}>
           <View style={styles.heroOrbs}>
@@ -178,15 +185,7 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </Animated.View>
 
-        {/* Quick Access */}
-        <Text style={styles.sectionTitle}>Quick Access</Text>
-        <View style={styles.quickGrid}>
-          {QUICK_FEATURES.map(item => (
-            <QuickFeatureCard key={item.id} item={item} />
-          ))}
-        </View>
-
-        {/* Astrologers */}
+         {/* Astrologers */}
         <View style={styles.sectionHeader}>
           <Text style={[styles.sectionTitle, { marginBottom: 0 }]}>Astrologers</Text>
           <TouchableOpacity activeOpacity={0.7}>
@@ -199,6 +198,15 @@ export default function HomeScreen() {
           ))}
         </ScrollView>
 
+        {/* Quick Access */}
+        <Text style={styles.sectionTitle}>Quick Access</Text>
+        <View style={styles.quickGrid}>
+          {QUICK_FEATURES.map(item => (
+            <QuickFeatureCard key={item.id} item={item} />
+          ))}
+        </View>
+
+      
         {/* Today's Panchang */}
         <Text style={styles.sectionTitle}>Today's Panchang</Text>
         <View style={styles.panchangCard}>
@@ -236,7 +244,6 @@ export default function HomeScreen() {
             </View>
           </View>
         </View>
-
         {/* Zodiac Wheel */}
         <Text style={styles.sectionTitle}>Explore Zodiac Signs</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.zodiacScroll}>

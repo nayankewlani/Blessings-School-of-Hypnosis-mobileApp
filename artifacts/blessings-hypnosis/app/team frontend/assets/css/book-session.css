@@ -1,0 +1,40 @@
+/* Session Cards Styling */
+.session-card {
+    transition: all 0.3s ease-in-out;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.session-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+}
+
+.icon-circle {
+    width: 70px;
+    height: 70px;
+    background: #fff5f5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-traditional {
+    background-color: #ff6600;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-family: 'Cinzel', serif;
+    transition: 0.3s;
+}
+
+.btn-traditional:hover {
+    background-color: #660000;
+    color: white;
+}
+
+.featured-card:hover {
+    transform: scale(1.08) !important;
+}
